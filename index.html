@@ -16,6 +16,9 @@
         <a href="#products" class="mx-3 hover:text-indigo-600">Products</a>
         <a href="#about" class="mx-3 hover:text-indigo-600">About</a>
         <a href="#contact" class="mx-3 hover:text-indigo-600">Contact</a>
+        <a href="#login" class="mx-3 hover:text-indigo-600">Login</a>
+        <a href="#signup" class="mx-3 hover:text-indigo-600">Sign Up</a>
+        <a href="#admin" class="mx-3 text-red-600 font-semibold hover:text-red-700">Admin</a>
       </nav>
     </div>
   </header>
@@ -76,8 +79,55 @@
     </div>
   </section>
 
+  <!-- Login Section -->
+  <section id="login" class="py-16 bg-gray-100">
+    <div class="max-w-md mx-auto bg-white p-8 shadow-lg rounded-2xl">
+      <h3 class="text-2xl font-bold mb-6 text-center">Login</h3>
+      <form>
+        <input type="email" placeholder="Email" class="w-full mb-4 p-3 border rounded-lg" required>
+        <input type="password" placeholder="Password" class="w-full mb-4 p-3 border rounded-lg" required>
+        <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700">Login</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Sign Up Section -->
+  <section id="signup" class="py-16">
+    <div class="max-w-md mx-auto bg-white p-8 shadow-lg rounded-2xl">
+      <h3 class="text-2xl font-bold mb-6 text-center">Create an Account</h3>
+      <form>
+        <input type="text" placeholder="Full Name" class="w-full mb-4 p-3 border rounded-lg" required>
+        <input type="email" placeholder="Email" class="w-full mb-4 p-3 border rounded-lg" required>
+        <input type="password" placeholder="Password" class="w-full mb-4 p-3 border rounded-lg" required>
+        <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700">Sign Up</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Admin Section -->
+  <section id="admin" class="py-16 bg-gray-100">
+    <div class="max-w-4xl mx-auto bg-white p-8 shadow-lg rounded-2xl">
+      <h3 class="text-3xl font-bold mb-6 text-center text-red-600">Admin Panel</h3>
+      <p class="text-gray-700 mb-4 text-center">Only authorized admins can access this section.</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 border rounded-xl text-center">
+          <h4 class="font-bold">Manage Products</h4>
+          <p class="text-sm text-gray-600">Add, update, or remove products.</p>
+        </div>
+        <div class="p-6 border rounded-xl text-center">
+          <h4 class="font-bold">View Orders</h4>
+          <p class="text-sm text-gray-600">Check customer orders and payments.</p>
+        </div>
+        <div class="p-6 border rounded-xl text-center">
+          <h4 class="font-bold">Customer Messages</h4>
+          <p class="text-sm text-gray-600">View and respond to inquiries.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- About Section -->
-  <section id="about" class="py-16 bg-gray-100">
+  <section id="about" class="py-16">
     <div class="max-w-5xl mx-auto px-6 text-center">
       <h3 class="text-3xl font-bold mb-6">About YF-COLLECTION</h3>
       <p class="text-gray-700 leading-relaxed">
@@ -89,10 +139,10 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-16">
+  <section id="contact" class="py-16 bg-gray-100">
     <div class="max-w-4xl mx-auto text-center">
       <h3 class="text-3xl font-bold mb-6">Contact Us</h3>
-      <p class="text-gray-700">For orders & inquiries, email us at <span class="font-semibold">yfcollection2025@gmail.com</span></p>
+      <p class="text-gray-700">For orders & inquiries, email us at <a href="mailto:yfcollection2025@gmail.com" class="font-semibold text-indigo-600">yfcollection2025@gmail.com</a></p>
       <p class="text-gray-700">Or WhatsApp at <span class="font-semibold">03334818841</span></p>
     </div>
   </section>
