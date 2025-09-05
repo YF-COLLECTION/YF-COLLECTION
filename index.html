@@ -6,10 +6,9 @@
   <title>YF-COLLECTION</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    /* Smooth fading for announcements */
-    .fade {
-      transition: opacity 1s ease-in-out;
-    }
+    .fade { transition: opacity 1s ease-in-out; }
+    .thumbnail { cursor: pointer; border: 2px solid transparent; }
+    .thumbnail.active { border-color: #4F46E5; }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
@@ -21,104 +20,70 @@
 
   <!-- 🔹 Header -->
   <header class="bg-white shadow-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto py-4 text-center">
-      <!-- Brand Name -->
-      <h1 class="text-4xl font-extrabold text-indigo-700 tracking-wide">YF-COLLECTION</h1>
-      <!-- Navigation -->
-      <nav class="mt-4 flex justify-center space-x-10">
+    <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 md:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-indigo-700 tracking-wide">YF-COLLECTION</h1>
+      <nav class="mt-3 flex flex-wrap justify-center gap-6 md:gap-10">
         <a href="#products" class="text-lg font-medium text-gray-700 hover:text-indigo-600">Products</a>
         <a href="#about" class="text-lg font-medium text-gray-700 hover:text-indigo-600">About</a>
         <a href="#contact" class="text-lg font-medium text-gray-700 hover:text-indigo-600">Contact</a>
-        <button onclick="openModal('loginModal')" class="text-lg font-medium text-gray-700 hover:text-indigo-600">Login</button>
-        <button onclick="openModal('signupModal')" class="text-lg font-medium text-gray-700 hover:text-indigo-600">Sign Up</button>
-        <button onclick="openModal('cartModal')" class="text-lg font-medium text-gray-700 hover:text-indigo-600">Cart 🛒</button>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="bg-cover bg-center h-[80vh] flex items-center justify-center" style="background-image: url('https://i.ibb.co/2dQZwNf/traditional-suit.jpg');">
-    <div class="bg-black bg-opacity-60 p-10 rounded-2xl text-center">
-      <h2 class="text-5xl md:text-6xl font-extrabold text-white mb-6">Elegance in Every Stitch</h2>
-      <p class="text-xl text-gray-200 mb-8">Discover premium Pakistani traditional suits at YF-COLLECTION</p>
-      <a href="#products" class="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-4 rounded-lg font-semibold shadow-lg">Shop Now</a>
-    </div>
-  </section>
-
-  <!-- Product Section -->
-  <section id="products" class="py-20 bg-gray-100">
+  <!-- 🔹 Products Section -->
+  <section id="products" class="py-16 bg-gray-100">
     <div class="max-w-7xl mx-auto px-6">
       <h3 class="text-3xl font-bold mb-12 text-center text-indigo-700">Our Latest Collection</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
 
-        <!-- Example Product -->
+        <!-- Product Card -->
         <div class="bg-white shadow-xl rounded-2xl p-6 hover:shadow-2xl transition">
-          <img src="IMG-20250830-WA0016.jpg" alt="IMBRIDED KHDDAR DRESS" class="rounded-xl mb-4">
+          <!-- Main Image -->
+          <img id="mainImg1" src="IMG-20250830-WA0016.jpg" alt="IMBRIDED KHDDAR DRESS" class="rounded-xl mb-4 w-full h-64 object-cover">
+          
+          <!-- Thumbnails -->
+          <div class="flex space-x-2 mb-4">
+            <img src="IMG-20250830-WA0016.jpg" class="thumbnail w-16 h-16 rounded-lg object-cover active" onclick="changeImage('mainImg1', this)">
+            <img src="https://i.ibb.co/xY8hZg2/suit2.jpg" class="thumbnail w-16 h-16 rounded-lg object-cover" onclick="changeImage('mainImg1', this)">
+            <img src="https://i.ibb.co/z8j7t8M/suit3.jpg" class="thumbnail w-16 h-16 rounded-lg object-cover" onclick="changeImage('mainImg1', this)">
+            <img src="https://i.ibb.co/2dQZwNf/traditional-suit.jpg" class="thumbnail w-16 h-16 rounded-lg object-cover" onclick="changeImage('mainImg1', this)">
+          </div>
+
+          <!-- Product Info -->
           <h4 class="font-bold text-lg">IMBRIDED KHDDAR DRESS</h4>
           <p class="text-gray-600">PKR 4000</p>
+          <p class="text-sm text-gray-500 mt-2">A premium embroidered khaddar suit with traditional design and fine detailing.</p>
+          
+          <!-- Ratings -->
+          <div class="flex items-center space-x-1 mt-2">
+            <span onclick="rateProduct(this,1)" class="star text-gray-400 cursor-pointer">★</span>
+            <span onclick="rateProduct(this,2)" class="star text-gray-400 cursor-pointer">★</span>
+            <span onclick="rateProduct(this,3)" class="star text-gray-400 cursor-pointer">★</span>
+            <span onclick="rateProduct(this,4)" class="star text-gray-400 cursor-pointer">★</span>
+            <span onclick="rateProduct(this,5)" class="star text-gray-400 cursor-pointer">★</span>
+          </div>
+
+          <!-- Buttons -->
           <div class="mt-4 flex space-x-3">
             <button onclick="addToCart('IMBRIDED KHDDAR DRESS', 4000)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Add to Cart</button>
             <button onclick="openBuyNow('IMBRIDED KHDDAR DRESS', 4000)" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Buy Now</button>
           </div>
         </div>
 
-        <div class="bg-white shadow-xl rounded-2xl p-6 hover:shadow-2xl transition">
-          <img src="https://i.ibb.co/xY8hZg2/suit2.jpg" alt="Silk Party Wear" class="rounded-xl mb-4">
-          <h4 class="font-bold text-lg">Silk Party Wear</h4>
-          <p class="text-gray-600">PKR 7200</p>
-          <div class="mt-4 flex space-x-3">
-            <button onclick="addToCart('Silk Party Wear', 7200)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Add to Cart</button>
-            <button onclick="openBuyNow('Silk Party Wear', 7200)" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Buy Now</button>
-          </div>
-        </div>
-
-        <div class="bg-white shadow-xl rounded-2xl p-6 hover:shadow-2xl transition">
-          <img src="https://i.ibb.co/z8j7t8M/suit3.jpg" alt="Casual Cotton Suit" class="rounded-xl mb-4">
-          <h4 class="font-bold text-lg">Casual Cotton Suit</h4>
-          <p class="text-gray-600">PKR 3200</p>
-          <div class="mt-4 flex space-x-3">
-            <button onclick="addToCart('Casual Cotton Suit', 3200)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Add to Cart</button>
-            <button onclick="openBuyNow('Casual Cotton Suit', 3200)" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Buy Now</button>
-          </div>
-        </div>
-
+        <!-- You can copy the same structure above for more products -->
+        
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-20 bg-white">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <h3 class="text-3xl font-bold mb-8 text-indigo-700">About YF-COLLECTION</h3>
-      <p class="text-gray-700 leading-relaxed text-lg">
-        YF-COLLECTION is a modern fashion brand dedicated to bringing you the finest Pakistani traditional suits. 
-        We focus on blending **heritage craftsmanship** with **modern design elements** to create timeless outfits 
-        that express elegance and individuality. Every stitch is a promise of **comfort, quality, and authenticity**.  
-        Whether it’s a wedding, festive occasion, or casual wear, YF-COLLECTION offers fashion that empowers you 
-        to embrace your culture with confidence and style.  
-      </p>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-gray-100">
-    <div class="max-w-4xl mx-auto text-center">
-      <h3 class="text-3xl font-bold mb-8 text-indigo-700">Contact Us</h3>
-      <p class="text-gray-700">Email: <a href="mailto:yfcollection2025@gmail.com" class="font-semibold text-indigo-600">yfcollection2025@gmail.com</a></p>
-      <p class="text-gray-700">WhatsApp: <span class="font-semibold">03334818841</span></p>
-    </div>
-  </section>
-
-  <!-- Footer -->
+  <!-- 🔹 Footer -->
   <footer class="bg-indigo-700 text-white py-6 text-center">
     <p>All Rights Reserved © YF-COLLECTION 2025</p>
   </footer>
 
-  <!-- 🔹 Modals (Login, Sign Up, Cart, Buy Now) -->
-  <!-- Same modals as before (no changes needed) -->
-
+  <!-- 🔹 Scripts -->
   <script>
-    // 🔹 Announcements Rotator
+    // Announcement rotation
     const announcements = [
       "🔥 Welcome to YF-COLLECTION – Elegance in Every Stitch 🔥",
       "✨ Free Shipping on Orders Above PKR 5000 ✨",
@@ -136,24 +101,21 @@
       }, 1000);
     }, 5000);
 
-    // 🔹 Cart Logic
-    let cart = [];
-    function openModal(id) { document.getElementById(id).classList.remove("hidden"); }
-    function closeModal(id) { document.getElementById(id).classList.add("hidden"); }
-    function addToCart(product, price) { cart.push({ product, price }); alert(product + " added to cart!"); }
-    function openBuyNow(product, price) {
-      document.getElementById("buyNowTitle").innerText = "Buy Now: " + product + " - PKR " + price;
-      openModal("buyNowModal");
+    // Change product main image
+    function changeImage(mainImgId, thumb) {
+      const mainImg = document.getElementById(mainImgId);
+      mainImg.src = thumb.src;
+      thumb.parentElement.querySelectorAll('.thumbnail').forEach(el => el.classList.remove('active'));
+      thumb.classList.add('active');
     }
-    function openCart() {
-      let cartList = document.getElementById("cartItems");
-      let total = 0;
-      cartList.innerHTML = "";
-      cart.forEach((item) => { total += item.price; cartList.innerHTML += `<li class="mb-2">${item.product} - PKR ${item.price}</li>`; });
-      document.getElementById("cartTotal").innerText = "Total: PKR " + total;
-      openModal("cartModal");
-    }
-  </script>
 
-</body>
-</html>
+    // Ratings
+    function rateProduct(el, rating) {
+      const stars = el.parentElement.querySelectorAll('.star');
+      stars.forEach((star, index) => {
+        star.classList.toggle('text-yellow-400', index < rating);
+        star.classList.toggle('text-gray-400', index >= rating);
+      });
+    }
+
+    
