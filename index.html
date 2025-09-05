@@ -16,9 +16,9 @@
         <a href="#products" class="mx-3 hover:text-indigo-600">Products</a>
         <a href="#about" class="mx-3 hover:text-indigo-600">About</a>
         <a href="#contact" class="mx-3 hover:text-indigo-600">Contact</a>
-        <a href="#login" class="mx-3 hover:text-indigo-600">Login</a>
-        <a href="#signup" class="mx-3 hover:text-indigo-600">Sign Up</a>
-        <!-- 🔴 Admin link removed from frontend -->
+        <button onclick="openModal('loginModal')" class="mx-3 hover:text-indigo-600">Login</button>
+        <button onclick="openModal('signupModal')" class="mx-3 hover:text-indigo-600">Sign Up</button>
+        <button onclick="openModal('cartModal')" class="mx-3 hover:text-indigo-600">Cart 🛒</button>
       </nav>
     </div>
   </header>
@@ -37,66 +37,39 @@
     <div class="max-w-7xl mx-auto px-6">
       <h3 class="text-3xl font-bold mb-10 text-center">Our Latest Collection</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
         <!-- Example Product -->
         <div class="bg-white shadow-lg rounded-2xl p-4">
           <img src="IMG-20250830-WA0016.jpg" alt="IMBRIDED KHDDAR DRESS" class="rounded-xl mb-4">
           <h4 class="font-bold text-lg">IMBRIDED KHDDAR DRESS</h4>
           <p class="text-gray-600">PKR 4000</p>
-          <a href="#payment" class="mt-3 inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Buy Now</a>
+          <div class="mt-3 flex space-x-2">
+            <button onclick="addToCart('IMBRIDED KHDDAR DRESS', 4000)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Add to Cart</button>
+            <button onclick="openBuyNow('IMBRIDED KHDDAR DRESS', 4000)" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Buy Now</button>
+          </div>
         </div>
+
         <div class="bg-white shadow-lg rounded-2xl p-4">
-          <img src="https://i.ibb.co/xY8hZg2/suit2.jpg" alt="Traditional Suit" class="rounded-xl mb-4">
+          <img src="https://i.ibb.co/xY8hZg2/suit2.jpg" alt="Silk Party Wear" class="rounded-xl mb-4">
           <h4 class="font-bold text-lg">Silk Party Wear</h4>
-          <p class="text-gray-600">PKR 7,200</p>
-          <a href="#payment" class="mt-3 inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Buy Now</a>
+          <p class="text-gray-600">PKR 7200</p>
+          <div class="mt-3 flex space-x-2">
+            <button onclick="addToCart('Silk Party Wear', 7200)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Add to Cart</button>
+            <button onclick="openBuyNow('Silk Party Wear', 7200)" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Buy Now</button>
+          </div>
         </div>
+
         <div class="bg-white shadow-lg rounded-2xl p-4">
-          <img src="https://i.ibb.co/z8j7t8M/suit3.jpg" alt="Traditional Suit" class="rounded-xl mb-4">
+          <img src="https://i.ibb.co/z8j7t8M/suit3.jpg" alt="Casual Cotton Suit" class="rounded-xl mb-4">
           <h4 class="font-bold text-lg">Casual Cotton Suit</h4>
-          <p class="text-gray-600">PKR 3,200</p>
-          <a href="#payment" class="mt-3 inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Buy Now</a>
+          <p class="text-gray-600">PKR 3200</p>
+          <div class="mt-3 flex space-x-2">
+            <button onclick="addToCart('Casual Cotton Suit', 3200)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Add to Cart</button>
+            <button onclick="openBuyNow('Casual Cotton Suit', 3200)" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Buy Now</button>
+          </div>
         </div>
+
       </div>
-    </div>
-  </section>
-
-  <!-- Payment Section -->
-  <section id="payment" class="py-16">
-    <div class="max-w-4xl mx-auto text-center">
-      <h3 class="text-3xl font-bold mb-6">Secure Payments</h3>
-      <p class="mb-4 text-gray-700">We accept advance payments through JazzCash & EasyPaisa.</p>
-      <div class="bg-white shadow-lg rounded-2xl p-6">
-        <p class="text-lg font-semibold">Send payment to:</p>
-        <p class="text-indigo-600 font-bold text-xl mt-2">03123132432</p>
-        <p class="text-gray-600">JazzCash & EasyPaisa</p>
-        <p class="text-gray-700 mt-4">After sending payment, share receipt & order details at:</p>
-        <p class="text-indigo-600 font-semibold">yfcollection2025@gmail.com</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Login Section -->
-  <section id="login" class="py-16 bg-gray-100">
-    <div class="max-w-md mx-auto bg-white p-8 shadow-lg rounded-2xl">
-      <h3 class="text-2xl font-bold mb-6 text-center">Login</h3>
-      <form>
-        <input type="email" placeholder="Email" class="w-full mb-4 p-3 border rounded-lg" required>
-        <input type="password" placeholder="Password" class="w-full mb-4 p-3 border rounded-lg" required>
-        <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700">Login</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Sign Up Section -->
-  <section id="signup" class="py-16">
-    <div class="max-w-md mx-auto bg-white p-8 shadow-lg rounded-2xl">
-      <h3 class="text-2xl font-bold mb-6 text-center">Create an Account</h3>
-      <form>
-        <input type="text" placeholder="Full Name" class="w-full mb-4 p-3 border rounded-lg" required>
-        <input type="email" placeholder="Email" class="w-full mb-4 p-3 border rounded-lg" required>
-        <input type="password" placeholder="Password" class="w-full mb-4 p-3 border rounded-lg" required>
-        <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700">Sign Up</button>
-      </form>
     </div>
   </section>
 
@@ -106,6 +79,9 @@
       <h3 class="text-3xl font-bold mb-6">About YF-COLLECTION</h3>
       <p class="text-gray-700 leading-relaxed">
         YF-COLLECTION is a modern fashion brand dedicated to bringing you the finest Pakistani traditional suits. 
+        Our mission is to blend traditional craftsmanship with contemporary designs to create timeless pieces. 
+        Every outfit is carefully crafted to reflect elegance, comfort, and premium quality. 
+        With YF-COLLECTION, you don’t just wear clothes – you wear heritage, passion, and sophistication. 
       </p>
     </div>
   </section>
@@ -123,6 +99,93 @@
   <footer class="bg-indigo-600 text-white py-6 text-center">
     <p>All Rights Reserved © YF-COLLECTION 2025</p>
   </footer>
+
+  <!-- 🔹 Login Modal -->
+  <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+    <div class="bg-white p-8 rounded-2xl w-96">
+      <h3 class="text-2xl font-bold mb-6 text-center">Login</h3>
+      <form>
+        <input type="email" placeholder="Email" class="w-full mb-4 p-3 border rounded-lg" required>
+        <input type="password" placeholder="Password" class="w-full mb-4 p-3 border rounded-lg" required>
+        <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700">Login</button>
+      </form>
+      <button onclick="closeModal('loginModal')" class="mt-4 text-red-600 w-full">Close</button>
+    </div>
+  </div>
+
+  <!-- 🔹 Sign Up Modal -->
+  <div id="signupModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+    <div class="bg-white p-8 rounded-2xl w-96">
+      <h3 class="text-2xl font-bold mb-6 text-center">Sign Up</h3>
+      <form>
+        <input type="text" placeholder="Full Name" class="w-full mb-4 p-3 border rounded-lg" required>
+        <input type="email" placeholder="Email" class="w-full mb-4 p-3 border rounded-lg" required>
+        <input type="password" placeholder="Password" class="w-full mb-4 p-3 border rounded-lg" required>
+        <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700">Sign Up</button>
+      </form>
+      <button onclick="closeModal('signupModal')" class="mt-4 text-red-600 w-full">Close</button>
+    </div>
+  </div>
+
+  <!-- 🔹 Cart Modal -->
+  <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+    <div class="bg-white p-8 rounded-2xl w-[500px]">
+      <h3 class="text-2xl font-bold mb-6 text-center">Your Cart</h3>
+      <ul id="cartItems" class="mb-4"></ul>
+      <p id="cartTotal" class="font-bold text-lg text-center"></p>
+      <button onclick="closeModal('cartModal')" class="mt-4 bg-red-600 text-white px-6 py-2 rounded-lg w-full">Close</button>
+    </div>
+  </div>
+
+  <!-- 🔹 Buy Now Modal -->
+  <div id="buyNowModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+    <div class="bg-white p-8 rounded-2xl w-[500px]">
+      <h3 id="buyNowTitle" class="text-2xl font-bold mb-6 text-center">Buy Now</h3>
+      <form>
+        <input type="text" placeholder="Full Name" class="w-full mb-4 p-3 border rounded-lg" required>
+        <input type="email" placeholder="Email" class="w-full mb-4 p-3 border rounded-lg" required>
+        <input type="text" placeholder="Phone Number" class="w-full mb-4 p-3 border rounded-lg" required>
+        <input type="text" placeholder="Address" class="w-full mb-4 p-3 border rounded-lg" required>
+        <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700">Place Order</button>
+      </form>
+      <button onclick="closeModal('buyNowModal')" class="mt-4 text-red-600 w-full">Close</button>
+    </div>
+  </div>
+
+  <script>
+    // Cart Data
+    let cart = [];
+
+    function openModal(id) {
+      document.getElementById(id).classList.remove("hidden");
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add("hidden");
+    }
+
+    function addToCart(product, price) {
+      cart.push({ product, price });
+      alert(product + " added to cart!");
+    }
+
+    function openBuyNow(product, price) {
+      document.getElementById("buyNowTitle").innerText = "Buy Now: " + product + " - PKR " + price;
+      openModal("buyNowModal");
+    }
+
+    function openCart() {
+      let cartList = document.getElementById("cartItems");
+      let total = 0;
+      cartList.innerHTML = "";
+      cart.forEach((item, index) => {
+        total += item.price;
+        cartList.innerHTML += `<li class="mb-2">${item.product} - PKR ${item.price}</li>`;
+      });
+      document.getElementById("cartTotal").innerText = "Total: PKR " + total;
+      openModal("cartModal");
+    }
+  </script>
 
 </body>
 </html>
