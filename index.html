@@ -18,7 +18,7 @@
         <a href="#contact" class="mx-3 hover:text-indigo-600">Contact</a>
         <a href="#login" class="mx-3 hover:text-indigo-600">Login</a>
         <a href="#signup" class="mx-3 hover:text-indigo-600">Sign Up</a>
-        <a href="#admin-login" class="mx-3 text-red-600 font-semibold hover:text-red-700">Admin</a>
+        <!-- 🔴 Admin link removed from frontend -->
       </nav>
     </div>
   </header>
@@ -100,19 +100,6 @@
     </div>
   </section>
 
-  <!-- Admin Login -->
-  <section id="admin-login" class="py-16">
-    <div class="max-w-md mx-auto bg-white p-8 shadow-lg rounded-2xl">
-      <h3 class="text-2xl font-bold mb-6 text-center">Admin Login</h3>
-      <form onsubmit="return adminLogin(event)">
-        <input type="text" id="admin-username" placeholder="Username" class="w-full mb-4 p-3 border rounded-lg" required>
-        <input type="password" id="admin-password" placeholder="Password" class="w-full mb-4 p-3 border rounded-lg" required>
-        <button type="submit" class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700">Login</button>
-      </form>
-      <p id="admin-error" class="text-red-600 text-center mt-3 hidden">Invalid login details</p>
-    </div>
-  </section>
-
   <!-- About Section -->
   <section id="about" class="py-16">
     <div class="max-w-5xl mx-auto px-6 text-center">
@@ -136,25 +123,6 @@
   <footer class="bg-indigo-600 text-white py-6 text-center">
     <p>All Rights Reserved © YF-COLLECTION 2025</p>
   </footer>
-
-  <!-- JavaScript -->
-  <script>
-    function adminLogin(event) {
-      event.preventDefault();
-      
-      const username = document.getElementById("admin-username").value;
-      const password = document.getElementById("admin-password").value;
-
-      const correctUsername = "admin";
-      const correctPassword = "12345";
-
-      if (username === correctUsername && password === correctPassword) {
-        window.location.href = "admin.html"; // redirect to admin panel page
-      } else {
-        document.getElementById("admin-error").classList.remove("hidden");
-      }
-    }
-  </script>
 
 </body>
 </html>
