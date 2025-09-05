@@ -83,39 +83,67 @@
 
   <!-- 🔹 Scripts -->
   <script>
-    // Announcement rotation
-    const announcements = [
-      "🔥 Welcome to YF-COLLECTION – Elegance in Every Stitch 🔥",
-      "✨ Free Shipping on Orders Above PKR 5000 ✨",
-      "💎 Premium Pakistani Suits Now Available 💎",
-      "🎉 Limited Time Offer – Order Today! 🎉"
-    ];
-    let currentAnnouncement = 0;
-    setInterval(() => {
-      const ann = document.getElementById("announcement");
-      ann.classList.add("opacity-0");
-      setTimeout(() => {
-        currentAnnouncement = (currentAnnouncement + 1) % announcements.length;
-        ann.textContent = announcements[currentAnnouncement];
-        ann.classList.remove("opacity-0");
-      }, 1000);
-    }, 5000);
+    <!-- 🔹 Scripts -->
+<script>
+  // Announcements Rotator
+  const announcements = [
+    "🔥 Welcome to YF-COLLECTION – Elegance in Every Stitch 🔥",
+    "✨ Free Shipping on Orders Above PKR 5000 ✨",
+    "💎 Premium Pakistani Suits Now Available 💎",
+    "🎉 Limited Time Offer – Order Today! 🎉"
+  ];
+  let currentAnnouncement = 0;
+  setInterval(() => {
+    const ann = document.getElementById("announcement");
+    ann.classList.add("opacity-0");
+    setTimeout(() => {
+      currentAnnouncement = (currentAnnouncement + 1) % announcements.length;
+      ann.textContent = announcements[currentAnnouncement];
+      ann.classList.remove("opacity-0");
+    }, 1000);
+  }, 5000);
 
-    // Change product main image
-    function changeImage(mainImgId, thumb) {
-      const mainImg = document.getElementById(mainImgId);
-      mainImg.src = thumb.src;
-      thumb.parentElement.querySelectorAll('.thumbnail').forEach(el => el.classList.remove('active'));
-      thumb.classList.add('active');
+  // Cart & Modal Logic
+  let cart = [];
+  function openModal(id) { document.getElementById(id).classList.remove("hidden"); }
+  function closeModal(id) { document.getElementById(id).classList.add("hidden"); }
+  function addToCart(product, price) { cart.push({ product, price }); alert(product + " added to cart!"); }
+  function openBuyNow(product, price) {
+    document.getElementById("buyNowTitle").innerText = "Buy Now: " + product + " - PKR " + price;
+    openModal("buyNowModal");
+  }
+  function openCart() {
+    let cartList = document.getElementById("cartItems");
+    let total = 0;
+    cartList.innerHTML = "";
+    cart.forEach((item) => { 
+      total += item.price; 
+      cartList.innerHTML += `<li class="mb-2">${item.product} - PKR ${item.price}</li>`; 
+    });
+    document.getElementById("cartTotal").innerText = "Total: PKR " + total;
+    openModal("cartModal");
+  }
+</script>
+<script>
+  // Existing script ... (announcements, cart, etc.)
+
+  // Change main product image
+  function changeImage(imgId, src) {
+    document.getElementById(imgId).src = src;
+  }
+
+  // Product rating system
+  function rateProduct(productId, rating) {
+    for (let i = 1; i <= 5; i++) {
+      let star = document.getElementById(`${productId}-star${i}`);
+      star.classList.remove("text-yellow-500");
+      star.classList.add("text-gray-400");
     }
-
-    // Ratings
-    function rateProduct(el, rating) {
-      const stars = el.parentElement.querySelectorAll('.star');
-      stars.forEach((star, index) => {
-        star.classList.toggle('text-yellow-400', index < rating);
-        star.classList.toggle('text-gray-400', index >= rating);
-      });
+    for (let i = 1; i <= rating; i++) {
+      let star = document.getElementById(`${productId}-star${i}`);
+      star.classList.remove("text-gray-400");
+      star.classList.add("text-yellow-500");
     }
-
-    
+    alert(`You rated ${productId} ${rating} stars!`);
+  }
+</script>
