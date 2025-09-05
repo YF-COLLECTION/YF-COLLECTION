@@ -18,7 +18,7 @@
         <a href="#contact" class="mx-3 hover:text-indigo-600">Contact</a>
         <a href="#login" class="mx-3 hover:text-indigo-600">Login</a>
         <a href="#signup" class="mx-3 hover:text-indigo-600">Sign Up</a>
-        <a href="#admin" class="mx-3 text-red-600 font-semibold hover:text-red-700">Admin</a>
+        <a href="#admin-login" class="mx-3 text-red-600 font-semibold hover:text-red-700">Admin</a>
       </nav>
     </div>
   </header>
@@ -104,11 +104,23 @@
     </div>
   </section>
 
-  <!-- Admin Section -->
-  <section id="admin" class="py-16 bg-gray-100">
+  <!-- Admin Login Page -->
+  <section id="admin-login" class="py-16">
+    <div class="max-w-md mx-auto bg-white p-8 shadow-lg rounded-2xl">
+      <h3 class="text-2xl font-bold mb-6 text-center">Admin Login</h3>
+      <form onsubmit="return adminLogin(event)">
+        <input type="text" id="admin-username" placeholder="Username" class="w-full mb-4 p-3 border rounded-lg" required>
+        <input type="password" id="admin-password" placeholder="Password" class="w-full mb-4 p-3 border rounded-lg" required>
+        <button type="submit" class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700">Login</button>
+      </form>
+      <p id="admin-error" class="text-red-600 text-center mt-3 hidden">Invalid login details</p>
+    </div>
+  </section>
+
+  <!-- Admin Panel (hidden by default) -->
+  <section id="admin-panel" class="py-16 bg-gray-100 hidden">
     <div class="max-w-4xl mx-auto bg-white p-8 shadow-lg rounded-2xl">
       <h3 class="text-3xl font-bold mb-6 text-center text-red-600">Admin Panel</h3>
-      <p class="text-gray-700 mb-4 text-center">Only authorized admins can access this section.</p>
       <div class="grid md:grid-cols-3 gap-6">
         <div class="p-6 border rounded-xl text-center">
           <h4 class="font-bold">Manage Products</h4>
@@ -151,6 +163,27 @@
   <footer class="bg-indigo-600 text-white py-6 text-center">
     <p>All Rights Reserved © YF-COLLECTION 2025</p>
   </footer>
+
+  <!-- JavaScript for Admin Login -->
+  <script>
+    function adminLogin(event) {
+      event.preventDefault();
+      
+      const username = document.getElementById("admin-username").value;
+      const password = document.getElementById("admin-password").value;
+
+      // Change these credentials to your own
+      const correctUsername = "admin";
+      const correctPassword = "12345";
+
+      if (username === correctUsername && password === correctPassword) {
+        document.getElementById("admin-login").classList.add("hidden");
+        document.getElementById("admin-panel").classList.remove("hidden");
+      } else {
+        document.getElementById("admin-error").classList.remove("hidden");
+      }
+    }
+  </script>
 
 </body>
 </html>
